@@ -22,9 +22,9 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5.5.1
         with:
-          images: pqiaohaoq/tiddlywiki
+          images: pqiaohaoq/radicale
           tags: |
-            type=semver,pattern={{version}},value=5.3.5
+            type=semver,pattern={{version}},value=3.3.0
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -37,8 +37,8 @@ jobs:
         id: push
         uses: docker/build-push-action@v6.9.0
         with:
-          context: .
-          file: ./Dockerfile
+          context: ./radicale
+          file: ./radicale/Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
