@@ -4,11 +4,11 @@ username=${RC_AUTH_USERNAME:-radicale}
 password=${RC_AUTH_PASSWORD:-radicale}
 web_type=${RC_WEB_TYPE:-internal}
 
-cat >> /etc/radicale/users <<EOF
+cat > /etc/radicale/users <<EOF
 ${username}:${password}
 EOF
 
-cat >> /etc/radicale/config <<EOF
+cat > /etc/radicale/config <<EOF
 [server]
 hosts = 0.0.0.0:5232
 
